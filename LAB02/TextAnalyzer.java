@@ -5,7 +5,8 @@ import java.io.*;
 
 
 /**
- * 
+ * This class takes the file given and reads it line by line,
+ * counting the number of lines, words, and letter frequency in the file
  * 
  *@author Ryan Valensa
  *@author Xavier Vogel
@@ -25,6 +26,9 @@ public class TextAnalyzer
 		String wholeLine;
 		String[] wordArray;
 		
+		/**
+		*try catch statement to make sure the file given is a valid file
+		*/
 		try 
 		{
 			fileIn = new Scanner (new File(fileName));
@@ -34,7 +38,12 @@ public class TextAnalyzer
 			System.out.println("File: " + fileName + " is not found");
 		}
 		
-		
+		/**
+		*while statement that keeps looping as long as the file has a next line
+		*each loop increases the lineCount by 1 and splits the current line
+		*in to words and puts the words into an array. Once the words are in an array
+		*wordCount is increased by the length of the array.
+		*/
 		while (fileIn.hasNextLine()) 
 		{
 			lineCount ++;
@@ -42,11 +51,21 @@ public class TextAnalyzer
 			
 			wordArray = wholeLine.split(" ");
 			wordCount = wordCount + wordArray.length;
+			
+			/**
+			*for loop to grab each word in the array one by one and turn all
+			*the letters in the word to uppercase.
+			*/
 			for (int i = 0; i < wordArray.length; i ++) 
 			{
 				String currentWord = wordArray[i];
 				currentWord = currentWord.toUpperCase();
 				
+					/**
+					*this for loop compares each letter in the current word to the alphabet
+					*string, finds the index of the letter in alphabet and increments that 
+					*same index in frequencies array by 1.
+					*/
 					for (int j = 0; j < currentWord.length(); j ++)
 					{
 						for (int k = 0; k < alphabet.length(); k ++)
