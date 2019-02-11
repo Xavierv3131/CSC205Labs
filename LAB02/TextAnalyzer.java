@@ -39,7 +39,6 @@ public class TextAnalyzer
 		{
 			lineCount ++;
 			wholeLine = fileIn.nextLine();
-			System.out.println(wholeLine);
 			
 			wordArray = wholeLine.split(" ");
 			wordCount = wordCount + wordArray.length;
