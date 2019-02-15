@@ -1,0 +1,29 @@
+package LAB03.Shape;
+
+public interface Shape
+{
+    double area();
+}
+interface TwoDShape extends Shape
+{
+    double perimeter();
+}
+interface ThreeDShape extends Shape
+{
+    double volume();
+}
+abstract class AbstractShape implements TwoDShape, ThreeDShape
+{
+    private static double numShapesCreated;
+    void incrementNumShapesCreated()
+    {
+        numShapesCreated++;
+    }
+    double getNumShapesCreated()
+    {
+        return numShapesCreated;
+    }
+    public abstract double area();
+    public abstract double perimeter();
+    public abstract double volume();
+}
